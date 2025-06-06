@@ -8,30 +8,34 @@ import {
 import Icon from "@/components/ui/icon";
 
 const WorldsSection = () => {
-  const worlds = [
+  const categories = [
     {
-      title: "Континент Центральный",
-      description: "Родина Рудеуса, место где началось его новое путешествие",
-      icon: "Home",
+      title: "Аниме",
+      description: "Эпизоды, сезоны и фильмы в высоком качестве",
+      icon: "Play",
       color: "from-green-500 to-emerald-600",
+      count: "1,284",
     },
     {
-      title: "Континент Демонов",
-      description: "Суровые земли, полные опасностей и древней магии",
-      icon: "Flame",
+      title: "Манга",
+      description: "Цифровые версии всех глав и томов",
+      icon: "BookOpen",
       color: "from-red-500 to-orange-600",
+      count: "856",
     },
     {
-      title: "Континент Милис",
-      description: "Священные земли, где правит религия и порядок",
-      icon: "Sun",
+      title: "Ранобэ",
+      description: "Лайт-новеллы в оригинале и переводах",
+      icon: "FileText",
       color: "from-yellow-500 to-amber-600",
+      count: "324",
     },
     {
-      title: "Небесный Континент",
-      description: "Парящие острова и воздушные замки в облаках",
-      icon: "Cloud",
+      title: "Саундтреки",
+      description: "OST, опенинги, эндинги и музыка",
+      icon: "Music",
       color: "from-blue-500 to-cyan-600",
+      count: "192",
     },
   ];
 
@@ -40,37 +44,39 @@ const WorldsSection = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
-            Миры Mushoku Tensei
+            Категории контента
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Исследуйте удивительные континенты, каждый со своей уникальной
-            культурой и магией
+            Выберите тип контента для поиска магических сокровищ знаний
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {worlds.map((world, index) => (
+          {categories.map((category, index) => (
             <Card
               key={index}
-              className="bg-slate-800/50 border-slate-700 hover:border-purple-500 transition-all duration-300 hover:scale-105"
+              className="bg-slate-800/50 border-slate-700 hover:border-purple-500 transition-all duration-300 hover:scale-105 cursor-pointer"
             >
               <CardHeader className="text-center">
                 <div
-                  className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${world.color} rounded-full flex items-center justify-center`}
+                  className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${category.color} rounded-full flex items-center justify-center`}
                 >
                   <Icon
-                    name={world.icon as any}
+                    name={category.icon as any}
                     size={28}
                     className="text-white"
                   />
                 </div>
                 <CardTitle className="text-xl text-purple-200">
-                  {world.title}
+                  {category.title}
                 </CardTitle>
+                <div className="text-2xl font-bold text-blue-300">
+                  {category.count}
+                </div>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-400 text-center">
-                  {world.description}
+                  {category.description}
                 </CardDescription>
               </CardContent>
             </Card>
